@@ -20,6 +20,21 @@ nav{
 .subscribe{
     margin-right: 1%;
 }
+.modal-content{
+    background-color: #141111;
+}
+.close{
+    color: red;
+    font-size: 40px;
+}
+.dropdown-menu{
+    background-color: #1a1d21;
+    
+}
+.dropdown-menu li a{
+    font-size: 18px;
+    color: white;
+}
 /*End Navbar*/
 
 /*Parallax*/
