@@ -21,11 +21,15 @@
 
             <!--Logo-->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    
+                <button type="button" id="toggle_button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                    <div id="toggle_front">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                    <div id="toggle_back">
+                        &times;
+                    </div>
                 </button>
                 <a href="#" class="navbar-brand"><img width="30" height="30" src="Images/favicon.png" ></a>
             </div>
@@ -89,7 +93,7 @@
             </div>
         </div>
     </div>
-    
+
     <!--End Navbar-->
 
     <div class="pimgv video-wrap" id="video-wrap">
@@ -99,12 +103,12 @@
         </video>
 
         <div class="ptext" id="click">
-            <div class="pulsating-wrapper" >
-            <div id="pulse_border">
-            <span class="border">
+            <div class="pulsating-wrapper">
+                <div id="pulse_border">
+                    <span class="border">
                 Enter The Blaze
             </span>
-            </div>
+                </div>
             </div>
         </div>
     </div>
@@ -146,7 +150,7 @@
     <section class="my_section section-dark">
         <h2>Section 3</h2>
         <p>
-            words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words 
+            words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words
         </p>
 
     </section>
@@ -167,20 +171,32 @@
 
     <script>
         /* $(document).ready(function () {
-            $(window).on('load scroll', function () {
-                var scrolled = $(this).scrollTop();
-                $('#title').css({
-                    'transform': 'translate3d(0, ' + -(scrolled * 0.2) + 'px, 0)', // parallax (20% scroll rate)
-                    'opacity': 1 - scrolled / 400 // fade out at 400px from top
-                });
-                $('#my_video').css('transform', 'translate3d(0, ' + -(scrolled * 0.25) + 'px, 0)'); // parallax (25% scroll rate)
-            });
-        });*/
+                    $(window).on('load scroll', function () {
+                        var scrolled = $(this).scrollTop();
+                        $('#title').css({
+                            'transform': 'translate3d(0, ' + -(scrolled * 0.2) + 'px, 0)', // parallax (20% scroll rate)
+                            'opacity': 1 - scrolled / 400 // fade out at 400px from top
+                        });
+                        $('#my_video').css('transform', 'translate3d(0, ' + -(scrolled * 0.25) + 'px, 0)'); // parallax (25% scroll rate)
+                    });
+                });*/
         $('#click').click(function(e) {
             e.preventDefault();
             $('html, body').animate({
                 scrollTop: $("#section1").offset().top - 120
             }, 1000);
+        });
+
+        $('#toggle_button').click(function(e) {
+            if ($(this).css('transform') == 'none') {
+                $(this).css({
+                    'transform': 'rotateY( 180deg)'
+                });
+            } else {
+                $(this).css({
+                    'transform': ''
+                });
+            };
         });
 
     </script>
