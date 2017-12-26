@@ -160,5 +160,8 @@ nav{
     .pimg1, .pimg2, .pimg3{
         background-attachment: scroll;
     }
+    .ptext{
+        font-size: 17px;
+    }
 }
 /* End Parallax*/
