@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Parallax</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/css/mdb.min.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/js/mdb.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'psite/blaze.css' %}">
+
+</head>
+
+<body>
+
+    <!--Navbar Start-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid ">
+
+            <!--Logo-->
+            <div class="navbar-header">
+                <button type="button" id="toggle_button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                    <div id="toggle_front">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                    <div id="toggle_back">
+                        &times;
+                    </div>
+                </button>
+                <a href="#" class="navbar-brand"><img width="30" height="30" src="{% static 'psite/images/favicon.png' %}" ></a>
+            </div>
+
+
+            <!--Menu Items-->
+
+            <div class="collapse navbar-collapse" id="mainNavBar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <!--<li><a href="#">About Me</a></li>-->
+                    <!--<li><a href="#">Contact</a></li>-->
+
+                    <!--Dropdown-->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Me<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Git</a></li>
+                            <li><a href="#">Social Media</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                            <li><a href="#">CV</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">About This Site</a></li>
+                    <li><a href="{% url 'psite:add-project' %}">Add</a></li>
+                </ul>
+
+                <!--right align-->
+                <ul class="nav navbar-nav navbar-right subscribe">
+                    <li><a id="subscribe" data-toggle="modal" data-target="#popUpWindow">Subscribe!</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!--Modal-->
+    <div id="popUpWindow" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3>Please give your Name and Email</h3>
+                </div>
+
+                <div class="modal-body">
+
+                    <form role="form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="E-mail">
+                        </div>
+                        <div class="form-group">
+                            <input type="Submit" class="form-control btn btn-success" placeholder="Submit">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--End Navbar-->
+
+    <div class="pimgv video-wrap" id="video-wrap">
+        <div id="title"></div>
+        <video autoplay loop id="my-video">
+            <source src="{% static 'psite/images/cvideo2.mp4' %}" type="video/mp4">
+        </video>
+
+        <div class="ptext" id="click">
+            <div class="pulsating-wrapper">
+                <div id="pulse_border">
+                    <span class="border">
+                Enter The Blaze
+            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="my_section section-light">
+        <h2 id="section1">Section 1</h2>
+        <p>
+            words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words
+        </p>
+
+    </section>
+
+    <div class="pimg2">
+
+        <div class="ptext">
+            <span class="border trans">
+                Image 2 text
+            </span>
+        </div>
+    </div>
+
+    <section class="my_section section-dark">
+        <h2>Projects</h2><br>
+        <div class="container-fluid project_container">
+            <div class="row">
+                {% for project in projects %}
+                    <div class="col-sm-1" ></div>
+                    <div class="col-md-3 col-sm-5 project_div">
+
+                        <div class="zimgc view hm-zoom" >
+                            <img class=""  src="{{ project.cover.url }}" width="250" height="300">
+                        </div>
+                        <h3>{{project.title}}</h3>
+                        <p>{{ project.description }}</p>
+                        <P>
+                            Made Using: {{ project.resources_used }}
+                        </P>
+                        {% if project.repo != "none" %}
+                            <a href="{{project.repo}}" >Github Repo</a>
+                        {% else %}
+                            <a>Github Repo Not available</a>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+
+    </section>
+
+    <div class="pimg3">
+
+        <div class="ptext">
+            <span class="border trans">
+                Image 3 text
+            </span>
+        </div>
+    </div>
+
+    <section class="my_section section-dark">
+        <h2>Section 3</h2>
+        <p>
+            words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words
+        </p>
+
+    </section>
+
+    <div class="pimg1">
+
+        <div class="ptext">
+            <span class="border trans">
+                Something
+            </span>
+        </div>
+        <!--<footer>
+
+            <h1>Thanks</h1>
+        </footer>-->
+    </div>
+
+
+    <script>
+        /* $(document).ready(function () {
+                    $(window).on('load scroll', function () {
+                        var scrolled = $(this).scrollTop();
+                        $('#title').css({
+                            'transform': 'translate3d(0, ' + -(scrolled * 0.2) + 'px, 0)', // parallax (20% scroll rate)
+                            'opacity': 1 - scrolled / 400 // fade out at 400px from top
+                        });
+                        $('#my_video').css('transform', 'translate3d(0, ' + -(scrolled * 0.25) + 'px, 0)'); // parallax (25% scroll rate)
+                    });
+                });*/
+        $('#click').click(function(e) {
+            e.preventDefault();
+            $('html, body').animate({
+                scrollTop: $("#section1").offset().top - 120
+            }, 1000);
+        });
+
+        $('#toggle_button').click(function(e) {
+            if ($(this).css('transform') == 'none') {
+                $(this).css({
+                    'transform': 'rotateY( 180deg)'
+                });
+            } else {
+                $(this).css({
+                    'transform': ''
+                });
+            };
+        });
+
+    </script>
+
+</body>
+
+</html>
