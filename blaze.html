@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html>
 
 <head>
@@ -50,11 +49,12 @@
                             <li><a href="#">CV</a></li>
                         </ul>
                     </li>
+                    <li><a href="#">About This Site</a></li>
                 </ul>
 
                 <!--right align-->
                 <ul class="nav navbar-nav navbar-right subscribe">
-                    <li><a data-toggle="modal" data-target="#popUpWindow">Subscribe!</a></li>
+                    <li><a id="subscribe" data-toggle="modal" data-target="#popUpWindow">Subscribe!</a></li>
                 </ul>
             </div>
 
@@ -99,9 +99,13 @@
         </video>
 
         <div class="ptext" id="click">
+            <div class="pulsating-wrapper" >
+            <div id="pulse_border">
             <span class="border">
                 Enter The Blaze
             </span>
+            </div>
+            </div>
         </div>
     </div>
 
@@ -125,7 +129,7 @@
     <section class="my_section section-dark">
         <h2>Section 2</h2>
         <p>
-            words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words
+            words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words
         </p>
 
     </section>
@@ -142,7 +146,7 @@
     <section class="my_section section-dark">
         <h2>Section 3</h2>
         <p>
-            words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words
+            words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words 
         </p>
 
     </section>
@@ -151,13 +155,13 @@
 
         <div class="ptext">
             <span class="border trans">
-                Parallax Website
+                Something
             </span>
         </div>
-        <footer>
+        <!--<footer>
 
             <h1>Thanks</h1>
-        </footer>
+        </footer>-->
     </div>
 
 
@@ -175,7 +179,7 @@
         $('#click').click(function(e) {
             e.preventDefault();
             $('html, body').animate({
-                scrollTop: $("#section1").offset().top - 100
+                scrollTop: $("#section1").offset().top - 120
             }, 1000);
         });
 
