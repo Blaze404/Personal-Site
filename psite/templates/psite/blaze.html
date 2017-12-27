@@ -5,6 +5,7 @@
     <title>Parallax</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/css/mdb.min.css" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/js/mdb.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -119,7 +120,7 @@
     </div>
 
     <section class="my_section section-light">
-        <h2 id="section1">Section 1</h2>
+        <p class="section-head" id="section-1">Section 1</p>
         <p>
             words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words
         </p>
@@ -136,18 +137,31 @@
     </div>
 
     <section class="my_section section-dark">
-        <h2>Projects</h2><br>
+        <p class="section-head">Projects</p><br>
         <div class="container-fluid project_container">
             <div class="row">
                 {% for project in projects %}
                     <div class="col-sm-1" ></div>
                     <div class="col-md-3 col-sm-5 project_div">
-
-                        <div class="zimgc view hm-zoom" >
-                            <img class=""  src="{{ project.cover.url }}" width="250" height="300">
+                        <div class="triangle-bottomleft" ></div>
+                        <div class="zimgc-wrap">
+                            <div class="zimgc">
+                                <div class="inner-div-zimgc" >
+                                    <p class="inner-zimgc-subh" >Made Using:</p>
+                                    <p class="inner-zimgc-content">{{ project.resources_used }}</p>
+                                    <p class="inner-zimgc-subh" >Github Repo:</p>
+                                    <p class="inner-zimgc-content"><a href="{{project.repo}}" >Repository</a></p>
+                                </div>
+                                <div class="image-wrap">
+                                <img  src="{{ project.cover.url }}" width="250" height="300">
+                                </div>
+                                {{ count.increase }}
+                            </div>
                         </div>
-                        <h3>{{project.title}}</h3>
-                        <p>{{ project.description }}</p>
+                        <h2><i class="fa fa-cube" aria-hidden="true"></i>&nbsp;&nbsp;{{project.title}}</h2>
+
+
+                        <!--<p>{{ project.description }}</p>
                         <P>
                             Made Using: {{ project.resources_used }}
                         </P>
@@ -155,12 +169,12 @@
                             <a href="{{project.repo}}" >Github Repo</a>
                         {% else %}
                             <a>Github Repo Not available</a>
-                        {% endif %}
+                        {% endif %}-->
+
                     </div>
                 {% endfor %}
             </div>
         </div>
-</div>
 
     </section>
 
@@ -174,7 +188,7 @@
     </div>
 
     <section class="my_section section-dark">
-        <h2>Section 3</h2>
+        <p class="section-head">Section 3</p>
         <p>
             words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words
         </p>
@@ -206,10 +220,11 @@
                         $('#my_video').css('transform', 'translate3d(0, ' + -(scrolled * 0.25) + 'px, 0)'); // parallax (25% scroll rate)
                     });
                 });*/
+
         $('#click').click(function(e) {
             e.preventDefault();
             $('html, body').animate({
-                scrollTop: $("#section1").offset().top - 120
+                scrollTop: $("#section-1").offset().top - 120
             }, 1000);
         });
 
@@ -224,6 +239,19 @@
                 });
             };
         });
+        $('.zimgc').click(function(e) {
+            if ($(this).css('transform') == 'none') {
+                $(this).css({
+                    'transform': 'rotateY( 180deg)'
+                });
+            } else {
+                $(this).css({
+                    'transform': ''
+                });
+            };
+
+        });
+
 
     </script>
 

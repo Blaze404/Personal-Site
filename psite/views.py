@@ -1,13 +1,15 @@
 from django.shortcuts import render, reverse
-from . models import Projects
 from django.views.generic.edit import CreateView
 from .models import Projects
+from .my_utilities import Counter
 
 # Create your views here.
 def homepage(request):
     all_projects = Projects.objects.all()
+    count = Counter()
     context = {
-        'projects': all_projects
+        'projects': all_projects,
+        'count': count,
     }
     return render(request, 'psite/blaze.html', context)
 

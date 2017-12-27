@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Black');
+
 body, html{
     height: 100%;
     margin: 0;
@@ -188,26 +190,88 @@ nav{
 }
 /* End Parallax*/
 
+/*Section*/
+
+.section-head{
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 50px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+/*End section*/
+
 /*Projects*/
 .project_div{
     border: 2px solid black;
-    padding-top: 10px;
+    padding-top: 0px;
     padding-bottom: 10px;
-    text-align: center;
-    position: relative;
+    /*text-align: center;*/
     height: 500px;
     overflow-y: hidden;
-    transition: transform 0.5s ease;
-    background-color: #02132d;
-    color: black;
+    background-color: transparent;
+    color: white;
+    padding-left: 0;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
-.project_container{
-    border: 2px solid black;
-}
-.zimgc{
+
+.zimgc-wrap{
     align-self: center;
     width: 250px;
     height: 300px;
     border-radius: 50px;
     margin: 1px auto;
+    overflow: hidden;
+}
+.zimgc{
+    align-self: center;
+    width: 250px;
+    height: 300px;
+    position: relative;
+    transition: transform 2s ease;
+    transform-style: preserve-3d;
+}
+.project_div .triangle-bottomleft {
+	width: 0;
+	height: 0;
+	border-top: 100px solid black;
+	border-right: 100px solid transparent;
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+}
+.project_div .triangle-bottomleft:hover{
+    transform: rotateZ(180deg) scale(0.6, 0.6) translate(30px, 30px);
+    
+}
+.zimgc img, .zimgc .inner-div-zimgc{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+.zimgc img{
+    transition: transform 1s ease; 
+}
+.zimgc img:hover{
+    transform: scale(1.2, 1.2);
+    opacity: 0.9;
+}
+.zimgc .inner-div-zimgc{
+    color: white;
+    transform: rotateY(180deg);
+    padding: 10px;
+    text-align: left;
+    padding-right: 2px;
+}
+.zimgc .inner-div-zimgc .inner-zimgc-subh{
+    font-size: 22px;
+    font-weight: 600;
+}
+.zimgc .inner-div-zimgc .inner-zimgc-content{
+    font-size: 18px;
+    text-indent: 20px;
 }
